@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+
+
+<body>
+    <div id="container">
+        <div id="calculator">
+            <div id="displays">
+                <input type="text" id="display" placeholder="0" disabled>
+                <input type="text" id="displayA" disabled hidden>
+                <input type="text" id="displayOP" disabled hidden>
+                <input type="text" id="displayB" disabled hidden>
+                <input type="text" id="displayResult" disabled hidden>
+            </div>
+
+            <div id="firstRow">
+                <button onclick="buttonC()" class="greyButton">AC</button>
+                <button class="greyButton">+/-</button>
+                <button class="greyButton" onclick="percentage()">%</button>
+                <button class="buttonOP" onclick="division()">÷</button>
+            </div>
+
+            <div id="secondRow">
+                <button onclick="resetAfterResult(); button7()">7</button>
+                <button onclick="resetAfterResult(); button8()">8</button>
+                <button onclick="resetAfterResult(); button9()">9</button>
+                <button onclick="buttonX()" class="buttonOP">x</button>
+            </div>
+
+            <div id="thirdRow">
+                <button onclick="resetAfterResult(); button4()">4</button>
+                <button onclick="resetAfterResult(); button5()">5</button>
+                <button onclick="resetAfterResult(); button6()">6</button>
+                <button onclick="buttonMinus()" class="buttonOP">-</button>
+            </div>
+
+            <div id="fourthRow">
+                <button onclick="resetAfterResult(); button1()">1</button>
+                <button onclick="resetAfterResult(); button2()">2</button>
+                <button onclick="resetAfterResult(); button3()">3</button>
+                <button onclick="buttonPlus()" class="buttonOP">+</button>
+            </div>
+
+            <div id="fifthRow">
+                <button id="buttonZero" onclick="buttonZero()">0</button>
+                <button>.</button>
+                <button onclick="buttonEqual(); divideByZeroException()" class="buttonOP">=</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
