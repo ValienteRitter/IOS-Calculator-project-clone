@@ -233,6 +233,18 @@ function percentage(){
     }
 }
 
+function plus_minus(){
+    if(op == "+" || op == "-" || op == "x" || op == "÷"){
+        displayB.value *= -1
+        display.value = `${displayA.value}${op}${displayB.value}`
+    }
+
+    else{
+        displayA.value *= -1
+        display.value = `${displayA.value}`
+    }
+}
+
 function buttonEqual(){
     a = parseFloat(displayA.value)
     b = parseFloat(displayB.value)
