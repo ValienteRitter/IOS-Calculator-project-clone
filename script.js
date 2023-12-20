@@ -41,6 +41,26 @@ function resetAfterResult(){
     }
 }
 
+function chainOperations() {
+
+    if(c != null){
+        displayA.value = c
+        displayB.value = null
+        op = null
+        c = null
+    }
+
+    else if(op == "+" || op == "-" || op == "x" || op == "÷"){
+        buttonEqual()
+        displayA.value = c
+        displayB.value = null
+        op = null
+        c = null
+
+    }
+
+}
+
 function buttonC(){
     display.value = null
     displayA.value = null
@@ -234,7 +254,12 @@ function percentage(){
 }
 
 function plus_minus(){
-    if(op == "+" || op == "-" || op == "x" || op == "÷"){
+    if(c != null){
+        c *= -1
+        display.value = `${c}`
+    }
+    
+    else if(op == "+" || op == "-" || op == "x" || op == "÷"){
         displayB.value *= -1
         display.value = `${displayA.value}${op}${displayB.value}`
     }
