@@ -8,6 +8,7 @@ var a = null
 var b = null
 var c = null
 var op = null
+var changeOP = true
 displayA.value = null
 displayB.value = null
 display.value = null
@@ -16,10 +17,7 @@ displayResult.value = null
 
 
 
-console.log(displayA.value)
-console.log(op)
-console.log(displayB.value)
-console.log(display.value)
+
 
 
 
@@ -38,6 +36,7 @@ function resetAfterResult(){
         op = null
         a = null
         b = null
+        changeOP = true
     }
 }
 
@@ -48,14 +47,16 @@ function chainOperations() {
         displayB.value = null
         op = null
         c = null
+        changeOP = true
     }
 
-    else if(op == "+" || op == "-" || op == "x" || op == "÷"){
+    else if((changeOP == false) && (op == "+" || op == "-" || op == "x" || op == "÷")){
         buttonEqual()
         displayA.value = c
         displayB.value = null
         op = null
         c = null
+        changeOP = true
 
     }
 
@@ -71,6 +72,7 @@ function buttonC(){
     op =null
     a = null
     b = null
+    changeOP = true
 }
 
 
@@ -78,6 +80,7 @@ function buttonZero(){
     if(op == "+" || op == "-" || op == "x" || op == "÷"){
         displayB.value += 0
         display.value = `${displayA.value}${op}${displayB.value}`
+        changeOP = false
 
     }
 
@@ -92,6 +95,7 @@ function button1(){
     if(op == "+" || op == "-" || op == "x" || op == "÷"){
         displayB.value += 1
         display.value = `${displayA.value}${op}${displayB.value}`
+        changeOP = false
 
     }
 
@@ -107,6 +111,7 @@ function button2(){
     if(op == "+" || op == "-" || op == "x" || op == "÷"){
         displayB.value += 2
         display.value = `${displayA.value}${op}${displayB.value}`
+        changeOP = false
     }
 
     else{
@@ -121,6 +126,7 @@ function button3(){
     if(op == "+" || op == "-" || op == "x" || op == "÷"){
         displayB.value += 3
         display.value = `${displayA.value}${op}${displayB.value}`
+        changeOP = false
     }
 
     else{
@@ -134,6 +140,7 @@ function button4(){
     if(op == "+" || op == "-" || op == "x" || op == "÷"){
         displayB.value += 4
         display.value = `${displayA.value}${op}${displayB.value}`
+        changeOP = false
         
     }
 
@@ -148,6 +155,7 @@ function button5(){
     if(op == "+" || op == "-" || op == "x" || op == "÷"){
         displayB.value += 5
         display.value = `${displayA.value}${op}${displayB.value}`
+        changeOP = false
     }
 
     else{
@@ -162,6 +170,7 @@ function button6(){
     if(op == "+" || op == "-" || op == "x" || op == "÷"){
         displayB.value += 6
         display.value = `${displayA.value}${op}${displayB.value}`
+        changeOP = false
     }
 
     else{
@@ -176,6 +185,7 @@ function button7(){
     if(op == "+" || op == "-" || op == "x" || op == "÷"){
         displayB.value += 7
         display.value = `${displayA.value}${op}${displayB.value}`
+        changeOP = false
     }
 
     else{
@@ -190,6 +200,7 @@ function button8(){
     if(op == "+" || op == "-" || op == "x" || op == "÷"){
         displayB.value += 8
         display.value = `${displayA.value}${op}${displayB.value}`
+        changeOP = false
     }
 
     else{
@@ -204,6 +215,7 @@ function button9(){
     if(op == "+" || op == "-" || op == "x" || op == "÷"){
         displayB.value +=9
         display.value = `${displayA.value}${op}${displayB.value}`
+        changeOP = false
     }
 
     else{
@@ -214,30 +226,30 @@ function button9(){
 }
 function buttonPlus(){
     op = "+"
-    displayOP.value += "+"
-    display.value += "+"
+    displayOP.value = `${op}`
+    display.value = `${displayA.value}${op}`
     
 }
 
 function buttonMinus(){
     op = "-"
-    displayOP.value += "-"
-    display.value += "-"
+    displayOP.value = `${op}`
+    display.value = `${displayA.value}${op}`
 }
 
 function buttonX(){
     op = "x"
 
-    displayOP.value += "x"
-    display.value += "x"
+    displayOP.value = `${op}`
+    display.value = `${displayA.value}${op}`
 
 }
 
 function division(){
     op = "÷"
 
-    displayOP.value += "÷"
-    display.value += "÷"
+    displayOP.value = `${op}`
+    display.value = `${displayA.value}${op}`
 }
 
 function percentage(){
@@ -292,12 +304,7 @@ function buttonEqual(){
 
     displayResult.value = c
     display.value = c
-    console.log(c)
-    console.log(a)
-    console.log(b)
-    console.log(displayA.value)
-    console.log(displayOP.value)
-    console.log(displayB.value)
+
 
 }
 
