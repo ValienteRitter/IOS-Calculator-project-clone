@@ -9,6 +9,9 @@ var b = null
 var c = null
 var op = null
 var changeOP = true
+var decimalA = false
+var decimalB = false
+
 displayA.value = null
 displayB.value = null
 display.value = null
@@ -48,6 +51,7 @@ function chainOperations() {
         op = null
         c = null
         changeOP = true
+        decimalB = false
     }
 
     else if((changeOP == false) && (op == "+" || op == "-" || op == "x" || op == "÷")){
@@ -57,6 +61,7 @@ function chainOperations() {
         op = null
         c = null
         changeOP = true
+        decimalB = false
 
     }
 
@@ -73,8 +78,23 @@ function buttonC(){
     a = null
     b = null
     changeOP = true
+    decimalA =false
+    decimalB = false
 }
 
+function decimal(){
+    if(decimalB == false && (op == "+" || op == "-" || op == "x" || op == "÷")){
+        displayB.value += "."
+        display.value = `${displayA.value}${op}${displayB.value}`
+        decimalB = true
+    }
+
+    else if(decimalA == false && (op != "+" || op != "-" || op != "x" || op != "÷")){
+        displayA.value += "."
+        display.value = `${displayA.value}`
+        decimalA = true
+    }
+}
 
 function buttonZero(){
     if(op == "+" || op == "-" || op == "x" || op == "÷"){
